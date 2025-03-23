@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+
 import time
 from recognition import detect_cube_and_predict, VideoCamera
 from movement import move_arm_to_cube, move_to_yellow_place, move_to_green_place, move_to_red_place, move_to_blue_place, take_cube
