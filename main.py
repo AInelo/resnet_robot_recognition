@@ -19,8 +19,11 @@ def main():
         predicted_class = detect_cube_and_predict(frame)
         
         # Affichage du résultat sur l'image
-        cv2.putText(frame, f"Cube: {predicted_class}", (50, 50),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
+        # cv2.putText(frame, f"Cube: {predicted_class}", (50, 50),
+        #             cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
+        cv2.putText(frame, "Cube: {}".format(predicted_class), (50, 50),
+            cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
+
 
         # Affichage en direct
         cv2.imshow("Cube Detection", frame)
