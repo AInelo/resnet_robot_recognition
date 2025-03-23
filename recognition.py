@@ -38,7 +38,8 @@ class VideoCamera:
             result = subprocess.check_output("sudo fuser /dev/video0", shell=True).decode().strip()
             if result:
                 pid = result.split()[-1]
-                subprocess.run(f"sudo kill -9 {pid}", shell=True, check=True)
+                # subprocess.run(f"sudo kill -9 {pid}", shell=True, check=True)
+                subprocess.run("sudo kill -9 {}".format(pid), shell=True, check=True)
         except subprocess.CalledProcessError:
             pass
 
