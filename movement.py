@@ -170,4 +170,5 @@ def move_to_blue_place():
     print("Position intermédiaire atteinte")
 
 
-move_to_blue_place()
+if __name__ == "__main__":
+    move_to_blue_place()
