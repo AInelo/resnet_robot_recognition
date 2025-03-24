@@ -272,17 +272,29 @@ def detect_cube_picture_camera():
     # Affichage du résultat
     print(f"Classe prédite : {predicted_class}")
 
-    # Affichage du résultat sur l'image
-    cv2.putText(frame, "Cube: {}".format(predicted_class), (50, 50),
-                cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
 
-    # Affichage en direct
-    cv2.imshow("Cube Detection", frame)
-    cv2.waitKey(0)  # Attendre une touche pour fermer la fenêtre
+def detect_cube_accurate():
+    """Détecte la classe du cube en lançant la détection 10 fois et en prenant la classe la plus fréquente."""
+    model_path = './test-save/resnet_model_best.pth'
+    classifier = CubeClassifier(model_path=model_path)
+    camera = VideoCamera()
 
-    cv2.destroyAllWindows()
+    class_counts = {class_name: 0 for class_name in classifier.class_names}
+
+    for _ in range(10):
+        frame = camera.get_frame()
+        if frame is None:
+            print("Erreur : Impossible de capturer l'image")
+            return
+
+        predicted_class = classifier.predict(frame)
+        class_counts[predicted_class] += 1
+
+    most_frequent_class = max(class_counts, key=class_counts.get)
+    print(f"Classe prédite la plus fréquente : {most_frequent_class}")
 
 
 if __name__ == '__main__':
 
-    detect_cube_picture_camera()
+    # detect_cube_picture_camera()
+    detect_cube_accurate()
