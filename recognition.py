@@ -273,28 +273,62 @@ def detect_cube_picture_camera():
     print(f"Classe prédite : {predicted_class}")
 
 
+# def detect_cube_accurate():
+#     """Détecte la classe du cube en lançant la détection 10 fois et en prenant la classe la plus fréquente."""
+#     model_path = './test-save/resnet_model_best.pth'
+#     classifier = CubeClassifier(model_path=model_path)
+#     camera = VideoCamera()
+
+#     class_counts = {class_name: 0 for class_name in classifier.class_names}
+
+#     for _ in range(5):
+#         frame = camera.get_frame()
+#         if frame is None:
+#             print("Erreur : Impossible de capturer l'image")
+#             return
+
+#         predicted_class = classifier.predict(frame)
+#         class_counts[predicted_class] += 1
+
+#     most_frequent_class = max(class_counts, key=class_counts.get)
+#     print(f"Classe prédite la plus fréquente : {most_frequent_class}")
+
 def detect_cube_accurate():
-    """Détecte la classe du cube en lançant la détection 10 fois et en prenant la classe la plus fréquente."""
+    """Détecte la classe du cube en lançant la détection 5 fois et en prenant la classe la plus fréquente."""
     model_path = './test-save/resnet_model_best.pth'
     classifier = CubeClassifier(model_path=model_path)
     camera = VideoCamera()
 
+    # Initialisation des comptages pour chaque classe
     class_counts = {class_name: 0 for class_name in classifier.class_names}
 
+    # Essayer 5 fois de détecter le cube
     for _ in range(5):
         frame = camera.get_frame()
         if frame is None:
             print("Erreur : Impossible de capturer l'image")
-            return
+            return None  # Retourner None si l'image ne peut pas être capturée
 
         predicted_class = classifier.predict(frame)
-        class_counts[predicted_class] += 1
+        
+        # Vérification si la prédiction est valide
+        if predicted_class in class_counts:
+            class_counts[predicted_class] += 1
+        else:
+            print(f"Prédiction invalide : {predicted_class}")
 
+    # Trouver la classe la plus fréquente
     most_frequent_class = max(class_counts, key=class_counts.get)
+
+    # Afficher la classe la plus fréquente
     print(f"Classe prédite la plus fréquente : {most_frequent_class}")
 
+    return most_frequent_class  # Retourner la classe la plus fréquente
 
-if __name__ == '__main__':
+
+
+
+# if __name__ == '__main__':
 
     # detect_cube_picture_camera()
-    detect_cube_accurate()
+    # detect_cube_accurate()
