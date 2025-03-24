@@ -152,6 +152,8 @@ def move_to_red_place():
     time.sleep(0.25)
     print("Position intermédiaire atteinte")
 
+
+
 def move_to_blue_place():
     print("Start deposit on blue box")
     arm.Arm_serial_servo_write6(39, 108, 38, 32, 89, 179, 500)
@@ -159,10 +161,14 @@ def move_to_blue_place():
 
     print("Continuation de la position")
     arm.Arm_serial_servo_write6(47, 83, 9, 21, 89, 179, 500)
-    time.sleep(0.5)
+    time.sleep(0.25)
 
     print("Relâche l'objet")
     arm.Arm_serial_servo_write6(47, 83, 9, 21, 89, 80, 1000)
+    time.sleep(0.5)
+
+    print("Relâche l'objet")
+    arm.Arm_serial_servo_write6(47, 83, 9, 21, 89, 40, 1000)
     time.sleep(0.25)
     # Position intermédiaire
     arm.Arm_serial_servo_write6(93, 87, 89, 2, 89, 178, 500)
