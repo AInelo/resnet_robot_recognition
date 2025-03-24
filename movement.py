@@ -98,10 +98,10 @@ def move_to_yellow_place():
 
     print("Continuation de la position")
     arm.Arm_serial_servo_write6(67, 14, 77, 37, 89, 157, 500)
-    time.sleep(0.25)
+    time.sleep(0.5)
 
     print("Relâche l'objet")
-    arm.Arm_serial_servo_write6(67, 14, 77, 37, 89, 107, 500)
+    arm.Arm_serial_servo_write6(67, 14, 77, 37, 89, 90, 500)
     time.sleep(0.25)
     
     # Position intermédiaire
@@ -118,10 +118,10 @@ def move_to_green_place():
 
     print("Continuation de la position")
     arm.Arm_serial_servo_write6(141, 67, 31, 7, 89, 159, 500)
-    time.sleep(0.25)
+    time.sleep(0.5)
 
     print("Relâche l'objet")
-    arm.Arm_serial_servo_write6(141, 67, 31, 7, 89, 109, 500)
+    arm.Arm_serial_servo_write6(141, 67, 31, 7, 89, 90, 500)
     time.sleep(0.25)
 
      # Position intermédiaire
@@ -141,10 +141,10 @@ def move_to_red_place():
 
     print("positione bien l'objet")
     arm.Arm_serial_servo_write6(120, 19, 60, 53, 89, 163, 500)
-    time.sleep(0.25)
+    time.sleep(0.5)
 
     print("Relâche l'objet")
-    arm.Arm_serial_servo_write6(120, 19, 60, 53, 89, 105, 500)
+    arm.Arm_serial_servo_write6(120, 19, 60, 53, 89, 90, 500)
     time.sleep(0.25)
 
     # Position intermédiaire
@@ -159,10 +159,10 @@ def move_to_blue_place():
 
     print("Continuation de la position")
     arm.Arm_serial_servo_write6(47, 83, 9, 21, 89, 179, 500)
-    time.sleep(0.25)
+    time.sleep(0.5)
 
     print("Relâche l'objet")
-    arm.Arm_serial_servo_write6(47, 83, 9, 21, 89, 101, 500)
+    arm.Arm_serial_servo_write6(47, 83, 9, 21, 89, 90, 500)
     time.sleep(0.25)
     # Position intermédiaire
     arm.Arm_serial_servo_write6(93, 87, 89, 2, 89, 178, 500)
