@@ -252,33 +252,33 @@ def detect_cube_with_picture(image_path):
     print(f"Classe prédite : {predicted_class}")
 
 
+
 def detect_cube_picture_camera():
-    """Détecte la classe du cube à partir de la caméra."""
+    """Détecte la classe du cube à partir de la caméra avec une seule photo."""
     # Initialisation du classificateur et de la caméra
     model_path = './test-save/resnet_model_best.pth'
     classifier = CubeClassifier(model_path=model_path)
     camera = VideoCamera()
 
-    while True:
-        # Capture d'une frame de la caméra
-        frame = camera.get_frame()
-        if frame is None:
-            print("Erreur : Impossible de capturer l'image")
-            break
+    # Capture d'une frame de la caméra
+    frame = camera.get_frame()
+    if frame is None:
+        print("Erreur : Impossible de capturer l'image")
+        return
 
-        # Prédiction du cube
-        predicted_class = classifier.predict(frame)
+    # Prédiction du cube
+    predicted_class = classifier.predict(frame)
 
-        # Affichage du résultat sur l'image
-        cv2.putText(frame, "Cube: {}".format(predicted_class), (50, 50),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
+    # Affichage du résultat
+    print(f"Classe prédite : {predicted_class}")
 
-        # Affichage en direct
-        cv2.imshow("Cube Detection", frame)
+    # Affichage du résultat sur l'image
+    cv2.putText(frame, "Cube: {}".format(predicted_class), (50, 50),
+                cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
 
-        # Quitter en appuyant sur 'q'
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
+    # Affichage en direct
+    cv2.imshow("Cube Detection", frame)
+    cv2.waitKey(0)  # Attendre une touche pour fermer la fenêtre
 
     cv2.destroyAllWindows()
 
