@@ -76,7 +76,7 @@ def take_cube():
 
     print("Approche de l'objet")
     arm.Arm_serial_servo_write6(94, 64, 11, 43, 89, 101, 500)
-    time.sleep(0.25)
+    time.sleep(0.5)
 
     print("Attrape l'objet")
     arm.Arm_serial_servo_write6(94, 32, 52, 20, 89, 153, 500)
