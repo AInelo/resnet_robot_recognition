@@ -1,14 +1,29 @@
 import time
 from recognition import detect_cube_accurate
-from movement import move_arm_to_cube, move_to_yellow_place, move_to_green_place, move_to_red_place, move_to_blue_place, take_cube
+from movement import move_arm_to_cube, move_to_yellow_place, move_to_green_place, move_to_red_place, move_to_blue_place, take_cube, initialize_arm, look_at_platform
+
+import sys
+import importlib
+
+sys.path.append('/home/jetson/Dofbot/0.py_install')
+Arm_Lib = importlib.import_module('Arm_Lib')
+Arm_Device = Arm_Lib.Arm_Device
+arm = Arm_Device()
+
 
 def main():
+    arm.Arm_serial_set_torque(1)
+
+    # Initialisation du bras robotisé
+    initialize_arm()
+    look_at_platform()
+
     # Boucle pour détecter et déplacer les cubes
     while True:
         # Détection du cube et prédiction de la couleur
         predicted_class = detect_cube_accurate()
 
-        # Affichage du résultat dans la console (ou ajouter un visuel si nécessaire)
+        # Affichage du résultat dans la console
         print(f"Cube détecté: {predicted_class}")
 
         # Si un cube est détecté, il faut le déplacer
