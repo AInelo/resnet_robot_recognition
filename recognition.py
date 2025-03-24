@@ -122,6 +122,9 @@ from torchvision import models, transforms
 from PIL import Image
 import subprocess
 import time
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning, module="torch")
+
 
 # Charger le modèle complet
 # model = models.resnet18(pretrained=False)  # Créer une nouvelle instance de ResNet18
