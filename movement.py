@@ -101,7 +101,11 @@ def move_to_yellow_place():
     time.sleep(0.5)
 
     print("Relâche l'objet")
-    arm.Arm_serial_servo_write6(67, 14, 77, 37, 89, 90, 500)
+    arm.Arm_serial_servo_write6(67, 14, 77, 37, 89, 90, 1000)
+    time.sleep(0.5)
+
+    print("Relâche l'objet")
+    arm.Arm_serial_servo_write6(67, 14, 77, 37, 89, 40, 1000)
     time.sleep(0.25)
     
     # Position intermédiaire
@@ -121,7 +125,11 @@ def move_to_green_place():
     time.sleep(0.5)
 
     print("Relâche l'objet")
-    arm.Arm_serial_servo_write6(141, 67, 31, 7, 89, 90, 500)
+    arm.Arm_serial_servo_write6(141, 67, 31, 7, 89, 90, 1000)
+    time.sleep(0.5)
+
+    print("Relâche l'objet")
+    arm.Arm_serial_servo_write6(141, 67, 31, 7, 89, 40, 1000)
     time.sleep(0.25)
 
      # Position intermédiaire
@@ -144,7 +152,11 @@ def move_to_red_place():
     time.sleep(0.5)
 
     print("Relâche l'objet")
-    arm.Arm_serial_servo_write6(120, 19, 60, 53, 89, 90, 500)
+    arm.Arm_serial_servo_write6(120, 19, 60, 53, 89, 90, 1000)
+    time.sleep(0.5)
+
+    print("Relâche l'objet")
+    arm.Arm_serial_servo_write6(120, 19, 60, 53, 89, 90, 1000)
     time.sleep(0.25)
 
     # Position intermédiaire
@@ -176,11 +188,11 @@ def move_to_blue_place():
     print("Position intermédiaire atteinte")
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    arm.Arm_serial_set_torque(1)
+#     arm.Arm_serial_set_torque(1)
     
-    initialize_arm()
-    look_at_platform()
-    take_cube()
-    move_to_blue_place()
+#     initialize_arm()
+#     look_at_platform()
+#     take_cube()
+#     move_to_blue_place()
