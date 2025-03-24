@@ -169,3 +169,5 @@ def move_to_blue_place():
     time.sleep(0.25)
     print("Position intermédiaire atteinte")
 
+
+move_to_blue_place()
