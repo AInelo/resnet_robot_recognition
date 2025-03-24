@@ -47,9 +47,9 @@ def main():
             # Attente avant de passer au prochain cube
             time.sleep(2)
 
-        # Quitter en appuyant sur 'q'
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
+        # # Quitter en appuyant sur 'q'
+        # if cv2.waitKey(1) & 0xFF == ord('q'):
+        #     break
 
 if __name__ == "__main__":
     main()
