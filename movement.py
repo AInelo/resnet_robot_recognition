@@ -171,4 +171,10 @@ def move_to_blue_place():
 
 
 if __name__ == "__main__":
+
+    arm.Arm_serial_set_torque(1)
+    
+    initialize_arm()
+    look_at_platform()
+    take_cube()
     move_to_blue_place()

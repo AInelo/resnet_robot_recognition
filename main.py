@@ -74,7 +74,7 @@ def main():
         if predicted_class:
             print(f"Cube détecté: {predicted_class}")
 
-            move_arm_to_cube(cube_position=(320, 240))  
+            # move_arm_to_cube(cube_position=(320, 240))  
             take_cube()
 
             if predicted_class == 'cube_red':
