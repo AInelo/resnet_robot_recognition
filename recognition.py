@@ -198,7 +198,7 @@ def detect_cube_accurate(classifier, camera):
     class_counts = {class_name: 0 for class_name in classifier.class_names}
 
     # Essayer 2 fois de détecter le cube
-    for _ in range(2):
+    for _ in range(4):
         frame = camera.get_frame()
         if frame is None:
             print("Erreur : Impossible de capturer l'image")
