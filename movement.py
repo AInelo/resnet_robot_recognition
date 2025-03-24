@@ -14,12 +14,12 @@ def initialize_arm():
 
     # Position de départ
     arm.Arm_serial_servo_write6(90, 90, 90, 90, 90, 180, 250)
-    time.sleep(0.5)
+    time.sleep(0.15)
     print("Position de départ atteinte")
 
     # Position intermédiaire
     arm.Arm_serial_servo_write6(93, 87, 89, 2, 89, 178, 250)
-    time.sleep(0.5)
+    time.sleep(0.15)
     print("Position intermédiaire atteinte")
 
     
@@ -27,17 +27,17 @@ def initialize_arm():
 def look_at_platform():
     print("Positionnement du bras pour regarder la plateforme")
     arm.Arm_serial_servo_write(1, 89, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
     arm.Arm_serial_servo_write(2, 95, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
     arm.Arm_serial_servo_write(3, 1, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
     arm.Arm_serial_servo_write(4, 6, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
     arm.Arm_serial_servo_write(5, 89, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
     arm.Arm_serial_servo_write(6, 178, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
     print("Position mort atteinte")
     time.sleep(2)
 
@@ -61,52 +61,52 @@ def move_arm_to_cube(cube_position):
         
         arm.Arm_serial_servo_write(1, angle_1, 250)
         move_arm_vertical(angle_2, 60, 45)
-        time.sleep(0.5)
+        time.sleep(0.15)
         
         operate_gripper(30)  # Fermer la pince
-        time.sleep(1)
+        time.sleep(0.5)
 
         move_arm_vertical(45, 45, 10)
-        time.sleep(1)
+        time.sleep(0.5)
 
 def take_cube():
     print("Position prêt à prendre l'objet")
     arm.Arm_serial_servo_write6(93, 82, 14, 32, 89, 178, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
 
     print("Approche de l'objet")
     arm.Arm_serial_servo_write6(94, 64, 11, 43, 89, 101, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
 
     print("Attrape l'objet")
     arm.Arm_serial_servo_write6(94, 32, 52, 20, 89, 153, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
 
     print("Soulève l'objet")
     arm.Arm_serial_servo_write6(93, 111, 2, 28, 89, 153, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
 
     print("Mise en l'air de l'objet")
     arm.Arm_serial_servo_write6(94, 87, 74, 74, 89, 153, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
 
 
 def move_to_yellow_place():
     print("Start deposit on yellow box")
     arm.Arm_serial_servo_write6(54, 91, 46, 60, 89, 157, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
 
     print("Continuation de la position")
     arm.Arm_serial_servo_write6(67, 14, 77, 37, 89, 157, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
 
     print("Relâche l'objet")
     arm.Arm_serial_servo_write6(67, 14, 77, 37, 89, 107, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
     
     # Position intermédiaire
     arm.Arm_serial_servo_write6(93, 87, 89, 2, 89, 178, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
     print("Position intermédiaire atteinte")
 
 
@@ -114,57 +114,58 @@ def move_to_yellow_place():
 def move_to_green_place():
     print("Start deposit on green box")
     arm.Arm_serial_servo_write6(141, 101, 42, 10, 89, 157, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
 
     print("Continuation de la position")
     arm.Arm_serial_servo_write6(141, 67, 31, 7, 89, 159, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
 
     print("Relâche l'objet")
     arm.Arm_serial_servo_write6(141, 67, 31, 7, 89, 109, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
 
      # Position intermédiaire
     arm.Arm_serial_servo_write6(93, 87, 89, 2, 89, 178, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
     print("Position intermédiaire atteinte")
 
 
 def move_to_red_place():
     print("Start deposit on red box")
     arm.Arm_serial_servo_write6(129, 84, 66, 34, 89, 153, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
 
     print("Evolution de la position")
     arm.Arm_serial_servo_write6(120, 58, 51, 30, 89, 163, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
 
     print("positione bien l'objet")
     arm.Arm_serial_servo_write6(120, 19, 60, 53, 89, 163, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
 
     print("Relâche l'objet")
     arm.Arm_serial_servo_write6(120, 19, 60, 53, 89, 105, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
 
     # Position intermédiaire
     arm.Arm_serial_servo_write6(93, 87, 89, 2, 89, 178, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
     print("Position intermédiaire atteinte")
 
 def move_to_blue_place():
     print("Start deposit on blue box")
     arm.Arm_serial_servo_write6(39, 108, 38, 32, 89, 179, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
 
     print("Continuation de la position")
     arm.Arm_serial_servo_write6(47, 83, 9, 21, 89, 179, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
 
     print("Relâche l'objet")
-    arm.Arm_serial_servo_write6(47, 83, 9, 21, 89, 109, 500)
-    time.sleep(0.5)
+    arm.Arm_serial_servo_write6(47, 83, 9, 21, 89, 101, 500)
+    time.sleep(0.15)
     # Position intermédiaire
     arm.Arm_serial_servo_write6(93, 87, 89, 2, 89, 178, 500)
-    time.sleep(0.5)
+    time.sleep(0.15)
     print("Position intermédiaire atteinte")
+
