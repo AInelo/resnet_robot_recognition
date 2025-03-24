@@ -162,7 +162,7 @@ def move_to_blue_place():
     time.sleep(0.5)
 
     print("Relâche l'objet")
-    arm.Arm_serial_servo_write6(47, 83, 9, 21, 89, 90, 1000)
+    arm.Arm_serial_servo_write6(47, 83, 9, 21, 89, 80, 1000)
     time.sleep(0.25)
     # Position intermédiaire
     arm.Arm_serial_servo_write6(93, 87, 89, 2, 89, 178, 500)
