@@ -149,7 +149,7 @@ class CubeClassifier:
         ])
 
         # Liste des classes
-        self.class_names = ['cube_red', 'cube_green', 'cube_blue', 'cube_yellow']
+        self.class_names = ['cube_blue', 'cube_green', 'cube_red', 'cube_yellow']
 
     def predict(self, frame):
         """Détecte la couleur et fait la prédiction avec le modèle."""
@@ -230,6 +230,8 @@ def run_cube_detection():
             break
 
     cv2.destroyAllWindows()
+
+# def detect_cub_with_picture
 
 
 if __name__ == '__main__':
