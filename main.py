@@ -1,32 +1,15 @@
-# -*- coding: utf-8 -*-
-
 import time
-from recognition import detect_cube_and_predict, VideoCamera
+from recognition import detect_cube_accurate
 from movement import move_arm_to_cube, move_to_yellow_place, move_to_green_place, move_to_red_place, move_to_blue_place, take_cube
 
-# Initialisation de la caméra et du robot
-camera = VideoCamera()
-
 def main():
-    # Boucle pour capturer des images et détecter les cubes
+    # Boucle pour détecter et déplacer les cubes
     while True:
-        frame = camera.get_frame()
-        if frame is None:
-            print("Erreur : Impossible de capturer l'image")
-            break
-
         # Détection du cube et prédiction de la couleur
-        predicted_class = detect_cube_and_predict(frame)
-        
-        # Affichage du résultat sur l'image
-        # cv2.putText(frame, f"Cube: {predicted_class}", (50, 50),
-        #             cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
-        cv2.putText(frame, "Cube: {}".format(predicted_class), (50, 50),
-            cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
+        predicted_class = detect_cube_accurate()
 
-
-        # Affichage en direct
-        cv2.imshow("Cube Detection", frame)
+        # Affichage du résultat dans la console (ou ajouter un visuel si nécessaire)
+        print(f"Cube détecté: {predicted_class}")
 
         # Si un cube est détecté, il faut le déplacer
         if predicted_class:
@@ -52,9 +35,6 @@ def main():
         # Quitter en appuyant sur 'q'
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
-
-    # Fermer les fenêtres après utilisation
-    cv2.destroyAllWindows()
 
 if __name__ == "__main__":
     main()
